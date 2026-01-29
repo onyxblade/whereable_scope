@@ -1,21 +1,12 @@
 module WhereableScope
   module QueryMethods
+    include ScopeHandler
+
     def where!(opts, *rest)
       case opts
       when Hash
-        whereable_scopes = model.whereable_scopes
-        whereable_scopes.keys.each do |key|
-          deleted = opts.delete(key.to_sym)
-          if deleted
-            new_scope = model.public_send(whereable_scopes[key], deleted)
-            merge!(new_scope)
-          end
-        end
-        if opts.empty?
-          self
-        else
-          super
-        end
+        extract_whereable_scopes(opts, model) { |scope| merge!(scope) }
+        opts.empty? ? self : super
       else
         super
       end
