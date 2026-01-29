@@ -10,7 +10,7 @@ RSpec.describe 'ActiveRecord::Base mixin' do
   end
 
   it 'can override whereable_scopes from parent model' do
-    expect(VerySpecialOrder.whereable_scopes).to eq({address: :by_address, total: :by_total})
+    expect(VerySpecialOrder.whereable_scopes).to eq({address: :by_total, total: :by_address})
   end
 
 end

@@ -6,13 +6,13 @@ Gem::Specification.new do |spec|
   spec.authors       = ['merely']
   spec.email         = ['git@merely.ca']
   spec.homepage      = 'https://github.com/onyxblade/whereable_scope'
-  spec.summary       = ''
+  spec.summary       = 'Use ActiveRecord scopes as parameters in where clauses'
   spec.description   = ''
   spec.license       = 'MIT'
 
   spec.files         = Dir.glob("lib/**/*.rb")
 
-  spec.add_runtime_dependency 'activerecord', '>= 5.0', '< 8.1'
+  spec.add_runtime_dependency 'activerecord', '>= 7.2', '< 8.1'
 
   spec.add_development_dependency 'pry'
   spec.add_development_dependency 'sqlite3'

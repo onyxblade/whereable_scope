@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     whereable_scope (0.1.0)
-      activerecord (>= 5.0, < 8.1)
+      activerecord (>= 7.2, < 8.1)
 
 GEM
   remote: https://rubygems.org/

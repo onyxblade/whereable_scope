@@ -1,9 +1,9 @@
 require_relative 'order'
 
 class VerySpecialOrder < Order
-  # It's so special that by_address queries by total, and by_total queries by address.
-  scope :by_address, ->(total) { where(total: total) }
-  scope :by_total, ->(address) { joins(:order_address).where(order_addresses: {address: address}) }
-  whereable_scope :by_address, as: :address
-  whereable_scope :by_total, as: :total
+  scope :by_total, ->(total) { where(total: total) }
+
+  # It's so special that address queries by total, and total queries by address.
+  whereable_scope :by_total, as: :address
+  whereable_scope :by_address, as: :total
 end
