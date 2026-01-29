@@ -34,8 +34,9 @@ class Order < ActiveRecord::Base
   whereable_scope :by_address, as: :address
 end
 
-# This continues to work after the migration!
+# These continue to work after the migration!
 Order.where(address: address)
+Order.where.not(address: address)
 ```
 
 ## Installation
@@ -71,7 +72,7 @@ Order.where(address: address, total: 100)
 
 ## Limitations
 
-`unscope(:where)` or `unscope(where: :address)` will not revert the merged scope. Since the scope is applied via `merge`, the resulting query conditions are not tracked under the `where` parameter name.
+`rewhere(address: ...)` and `unscope(where: :address)` will not be able to revert the merged scope. Since the scope is applied via `merge`, the resulting query conditions are not tracked under the `where` parameter name.
 
 ## Development
 
