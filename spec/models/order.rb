@@ -1,5 +1,6 @@
 ActiveRecord::Base.connection.create_table(:orders, force: true) do |t|
   t.integer :total
+  t.string :type
   t.timestamps
 end
 
